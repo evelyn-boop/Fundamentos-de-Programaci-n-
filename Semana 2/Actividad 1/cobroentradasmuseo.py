@@ -16,7 +16,7 @@ for persona in range(1, personas + 1):
 
     print("\nPersona", persona)
 
-    edad = int(input("Ingresa la edad: "))
+    edad = int(input("Ingresa la edad: ")) 
 
     # Si se ingresa una edad negativa, se termina el registro
     if edad < 0:
@@ -26,7 +26,7 @@ for persona in range(1, personas + 1):
     if edad < 3:
         precio = gratis
         print("La entrada es gratuita.")
-        continue
+        continue 
 
     elif edad < 18:
         precio = menor
