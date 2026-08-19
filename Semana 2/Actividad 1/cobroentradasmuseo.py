@@ -1,12 +1,12 @@
 # Actividad 2 - Cobro de entradas al museo
-
+ 
 gratis = 0
 menor = 30
 adulto = 45
 
 desc_adulto_mayor = 0.12
 desc_profesor = 0.10
-desc_estudiante = 0.10
+desc_estudiante = 0.10   
 
 total = 0
 
@@ -40,7 +40,7 @@ for persona in range(1, personas + 1):
     print("3 - Estudiante")
     print("4 - Ninguno")
 
-    opcion = input("Selecciona una opción: ")
+    opcion = input("Selecciona una opción: ") 
 
     descuento = 0
     tipo_descuento = "Ninguno"
@@ -59,7 +59,7 @@ for persona in range(1, personas + 1):
 
     elif opcion == "4":
         descuento = 0
-
+ 
     else:
         print("Opción no válida.")
         print("Esta entrada no se registrará.")
@@ -79,6 +79,6 @@ for persona in range(1, personas + 1):
 
 
 print("\n==============================")
-print("TOTAL DE TODAS LAS ENTRADAS")
+print("TOTAL DE TODAS LAS ENTRADAS") 
 print(f"${total:.2f}")
-print("==============================")
+print("==============================") 
