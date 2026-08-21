@@ -1,109 +1,108 @@
-# Actividad 2 - Cobro de entradas al museo
+# ****************************************************************************
+# Actividad Evaluable 2 - Cobro de Entradas del Museo
+# Nombre: Evelyn
+# Fecha: 20 de agosto de 2026
+# ****************************************************************************
 
-gratis = 0
-menor = 30
-adulto = 45
+# Constantes
+PRECIO_MENOR_3 = 0
+PRECIO_MENOR_EDAD = 30
+PRECIO_ADULTO = 45
 
-desc_adulto_mayor = 0.12
-desc_profesor = 0.10
-desc_estudiante = 0.10
+DESC_ADULTO_MAYOR = 0.12
+DESC_PROFESOR = 0.10
+DESC_ESTUDIANTE = 0.10
+DESC_NINGUNO = 0.00
 
-total = 0
+# Variables
+total_general = 0.0
+contador = 0
 
-personas = int(input("¿Cuántas personas van a entrar al museo?: "))
+print("=== COBRO DE ENTRADAS - MUSEO DE ANTROPOLOGIA ===")
+num_visitantes = int(input("Cuantos visitantes van a entrar? "))
+print()
 
-# Tabla para que el usuario lo muestre tabulado
-tabla = []
+while contador < num_visitantes:
+    contador += 1
 
-for persona in range(1, personas + 1):
+    print(f" Visitante {contador}")
+    edad = int(input("Edad: "))
 
-    print("\nPersona", persona)
-
-    edad = int(input("Ingresa la edad: "))
-
-    # Si se ingresa una edad negativa, se termina el registro
+    # Validar que la edad no sea negativa
     if edad < 0:
         print("La edad no puede ser negativa.")
-        break
+        print()
+        contador -= 1
+        continue
 
+    # Definir precio base
     if edad < 3:
-        precio = gratis
-        descuento_aplicado = 0
-        pago = 0
-        tipo_descuento = "Ninguno"
+        precio_base = PRECIO_MENOR_3
+    elif edad >= 3 and edad <= 17:
+        precio_base = PRECIO_MENOR_EDAD
+    else:
+        precio_base = PRECIO_ADULTO
 
-        print("La entrada es gratuita.")
+    # Si es menor de 3 años no puede tener descuento
+    if edad < 3:
+        print("Es menor de 3 años, entrada gratis")
+        descuento = DESC_NINGUNO
+        monto_descuento = 0.0
+        total = 0.0
 
-        tabla.append([persona, edad, precio, tipo_descuento,
-                      descuento_aplicado, pago])
+        print(f"Precio base: ${precio_base:.2f}")
+        print(f"Descuento: ${monto_descuento:.2f}")
+        print(f"Total a pagar: ${total:.2f}")
+        print()
 
         continue
 
-    elif edad < 18:
-        precio = menor
-
-    else:
-        precio = adulto
-
-    print("\n¿Tiene algún descuento?")
-    print("1 - Adulto mayor")
+    # Preguntar tipo solo si tiene 3 años o más
+    print("Que tipo de visitante es?")
+    print("1 - Adulto mayor (60+ años)")
     print("2 - Profesor")
     print("3 - Estudiante")
     print("4 - Ninguno")
 
-    opcion = input("Selecciona una opción: ")
+    tipo = int(input("Elige una opcion: "))
 
-    descuento = 0
-    tipo_descuento = "Ninguno"
+    # Tabla de verdad, solo un descuento
+    if tipo == 1 and edad >= 60:
+        descuento = DESC_ADULTO_MAYOR
+        nombre_descuento = "Adulto mayor 12%"
 
-    if opcion == "1":
-        descuento = desc_adulto_mayor
-        tipo_descuento = "Adulto mayor"
+    elif tipo == 2 and edad >= 18:
+        descuento = DESC_PROFESOR
+        nombre_descuento = "Profesor 10%"
 
-    elif opcion == "2":
-        descuento = desc_profesor
-        tipo_descuento = "Profesor"
+    elif tipo == 3:
+        descuento = DESC_ESTUDIANTE
+        nombre_descuento = "Estudiante 10%"
 
-    elif opcion == "3":
-        descuento = desc_estudiante
-        tipo_descuento = "Estudiante"
-
-    elif opcion == "4":
-        descuento = 0
+    elif tipo == 4:
+        descuento = DESC_NINGUNO
+        nombre_descuento = "Sin descuento"
 
     else:
-        print("Opción no válida.")
-        print("Esta entrada no se registrará.")
-        continue
+        print("No puedes usar ese descuento por tu edad")
+        descuento = DESC_NINGUNO
+        nombre_descuento = "Sin descuento"
 
-    descuento_aplicado = precio * descuento
-    pago = precio - descuento_aplicado
+    # Calcular
+    monto_descuento = precio_base * descuento
+    total = precio_base - monto_descuento
 
-    total += pago
+    # Acumular
+    total_general += total
 
-    tabla.append([persona, edad, precio, tipo_descuento,
-                  descuento_aplicado, pago])
+    # Mostrar datos del visitante
+    print(f"Precio base: ${precio_base:.2f}")
+    print(f"Descuento aplicado: {nombre_descuento}")
+    print(f"Monto del descuento: ${monto_descuento:.2f}")
+    print(f"Total a pagar: ${total:.2f}")
+    print()
 
-    print("\n--- Información de la entrada ---")
-    print("Edad:", edad)
-    print(f"Precio normal: ${precio:.2f}")
-    print("Descuento:", tipo_descuento)
-    print(f"Descuento aplicado: ${descuento_aplicado:.2f}")
-    print(f"Total a pagar: ${pago:.2f}")
-
-
-# Tabla final
-print("\n==============================")
-print("TABLA DE ENTRADAS")
-print("==============================")
-
-print("Persona | Edad | Precio | Descuento | Desc. aplicado | Total")
-
-for fila in tabla:
-    print(f"{fila[0]:7} | {fila[1]:4} | ${fila[2]:6.2f} | "
-          f"{fila[3]:15} | ${fila[4]:13.2f} | ${fila[5]:6.2f}")
-
-print("\n==============================")
-print("TOTAL DE TODAS LAS ENTRADAS")
-print(f"${total:.2f}")
-print("==============================")
+# Resumen final
+print("========================================")
+print(f"TOTAL GENERAL: ${total_general:.2f}")
+print("========================================")
