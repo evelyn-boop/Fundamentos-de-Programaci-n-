@@ -256,7 +256,7 @@ def main():
             continue
 
         # Descomentar para depurar con PDB
-        pdb.set_trace()
+        #pdb.set_trace()
 
         if opcion == 1:
             registrar_venta()
