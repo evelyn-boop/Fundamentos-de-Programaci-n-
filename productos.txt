@@ -1,5 +1,0 @@
---- INVENTARIO DE PRODUCTOS [25/2/2026] ---
-ID: 1 | Nombre: Café | Precio: $35.0 | Stock: 10 pzs
-ID: 2 | Nombre: Té | Precio: $25.0 | Stock: 10 pzs
-ID: 3 | Nombre: Sándwich | Precio: $50.0 | Stock: 5 pzs
-ID: 4 | Nombre: Pastel | Precio: $40.0 | Stock: 5 pzs
