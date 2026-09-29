@@ -1,5 +1,2 @@
-[25/5/2026] Sesión iniciada por usuario: eve
-[25/9/2026] Sesión iniciada por usuario: eve
-[25/9/2026] Sesión iniciada por usuario: eve
-[24/2/2025] Sesión iniciada por usuario: mariana
-[25/2/2024] Sesión iniciada por usuario: eve
+[25/9/2022] Sesión iniciada por usuario: eve
+[25/2/2062] Sesión iniciada por usuario: C:\Users\evele\AppData\Local\Programs\Python\Python314\python.exe "c:/Users/evele/OneDrive/Escritorio/fundamentos de programacion/Semana 8 Proyecto Final/prototipo final/prototipo_final.py"

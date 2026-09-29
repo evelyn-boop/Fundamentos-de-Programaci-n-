@@ -1,5 +1,0 @@
-Fecha: 25/9/2023 | Atendió: eve | Café x2 | Total: $70.0
-Fecha: 25/5/2026 | Atendió: eve | Pastel x2 | Total: $80.0
-Fecha: 25/5/2026 | Atendió: eve | Café x6 | Total: $210.0
-Fecha: 25/9/2026 | Atendió: eve | Pastel x1 | Total: $40.0
-Fecha: 24/2/2025 | Atendió: mariana | Sándwich x4 | Total: $200.0
